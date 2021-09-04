@@ -68,7 +68,7 @@ oShell.run "AutoLogin.py所在目录，例如：F:\Python\code\AutoLogin\AutoLog
 Set oShell = Nothing
 ```
 将此文件放置到`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup`目录下。
-<div id="binft">Congratulations!</div>
+<h1>Congratulations🎉</h1>
 <script src="https://cdn.jsdelivr.net/gh/flipped-1121/CDN/colorfont03.js"></script>
 
 # One More Thing
