@@ -69,7 +69,6 @@ Set oShell = Nothing
 ```
 将此文件放置到`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup`目录下。
 <h1>Congratulations🎉</h1>
-<script src="https://cdn.jsdelivr.net/gh/flipped-1121/CDN/colorfont03.js"></script>
 
 # One More Thing
 ✨实际上两行代码就可以解决问题。
