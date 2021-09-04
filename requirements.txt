@@ -1,0 +1,3 @@
+requests==2.25.1
+win10toast-click==0.1.2
+
