@@ -15,7 +15,7 @@ users:
 #       password: # 密码
 #       ISP:  # 运营商，可选：教职工、电信、联通、移动
 
-# 通知相关，不建议修改，默认 Windows 通知
+# 通知相关，不建议使用 go-cqhttp，默认 Windows 通知
 msg:
   go-cqhttp:
     # url 推送到个人QQ: http://127.0.0.1:port/send_private_msg  群：http://127.0.0.1:port/send_group_msg
