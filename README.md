@@ -8,6 +8,7 @@
 + 😎恰好有点 Python 小基础和 CV 的能力。
 + ✨实际上两行代码就可以解决问题。
 + 🗿代码较烂，望理解！
++ 🌟解除宽带速度限制。
 
 
 # 配置并运行
@@ -72,6 +73,10 @@ Set oShell = Nothing
 ```
 将此文件放置到`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup`目录下。
 <h1>Congratulations🎉</h1>
+
+## 解除宽带限速
+经过测试（~~~无意间发现~~~），当进行两次登录后，即可突破就宽带速度限制。
+
 
 # One More Thing
 ✨实际上两行代码就可以解决问题。
