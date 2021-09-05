@@ -18,7 +18,7 @@
 ## clone 并进入本项目，下载所需包
 ```bash
 git clone -b lite https://github.com/flipped-1121/AutoLogin.git
-cd AutoLogin-lite
+cd AutoLogin
 pip install -r requirements.txt
 ```
 
