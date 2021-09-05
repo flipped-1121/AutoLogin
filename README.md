@@ -12,6 +12,9 @@
 
 # 配置并运行
 
+## 环境配置
+✅ Python
+
 ## clone 并进入本项目，下载所需包
 ```bash
 git clone https://github.com/flipped-1121/AutoLogin.git
@@ -64,7 +67,7 @@ python AutoLogin.py
 新建文件`AutoLogin.vbs`,写入以下内容：
 ```bash
 Set oShell = WScript.CreateObject ("WSCript.shell")
-oShell.run "AutoLogin.py所在目录，例如：F:\Python\code\AutoLogin\AutoLogin.py"
+oShell.run "AutoLogin.py所在目录，例如：F:\Python\code\AutoLogin\AutoLogin.py",0
 Set oShell = Nothing
 ```
 将此文件放置到`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup`目录下。
