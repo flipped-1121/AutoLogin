@@ -87,10 +87,13 @@ def autoLogin():
         values = {"教职工": "@jzg", "电信": "@aust", "联通": "@unicom", "移动": "@cmcc"}
         ISPString = values[ISP]
         try:
-            r = requests.get(url=url,
-                             params={'callback': 'dr1003', 'DDDDD': str(userid) + ISPString, 'upass': password,
-                                     '0MKKey': key})
-            temp = r.text.replace('dr1003(', '').replace(')', '')
+            once = requests.get(url=url,
+                                params={'callback': 'dr1003', 'DDDDD': str(userid) + ISPString, 'upass': password,
+                                        '0MKKey': key})
+            twice = requests.get(url=url,
+                                 params={'callback': 'dr1003', 'DDDDD': str(userid) + ISPString, 'upass': password,
+                                         '0MKKey': key})
+            temp = twice.text.replace('dr1003(', '').replace(')', '')
             result = json.loads(temp)['result']
             if result == 1:
                 infoSubmit("自动登陆成功🎉🎉🎉")
