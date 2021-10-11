@@ -4,6 +4,7 @@
 
 
 # 前言
++ 🌟 推荐使用[ Shell 版本](https://github.com/flipped-1121/AutoLogin/tree/shell)
 + 🙄每天打开浏览器，点击`请选择出口`，再进行登录，不胜其烦。
 + 😎恰好有点 Python 小基础和 CV 的能力。
 + 🗿代码较烂，望理解！
