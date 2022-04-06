@@ -40,45 +40,6 @@ public class MainActivity<ISP> extends AppCompatActivity {
     private static String password;
     private static String ISP;
 
-    private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private static final String[] PERMISSIONS_STORAGE = {
-            "android.permission.READ_EXTERNAL_STORAGE",
-            "android.permission.WRITE_EXTERNAL_STORAGE"};
-
-    public static void verifyStoragePermissions(Activity activity) {
-        try {
-            // 检测是否有写的权限
-            int permission = ActivityCompat.checkSelfPermission(activity,
-                    "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (permission != PackageManager.PERMISSION_GRANTED) {
-                // 没有写的权限，去申请写的权限，会弹出对话框
-                ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static class initPost {
-        public final MediaType JSON = MediaType.get("application/json; charset=utf-8");
-        final OkHttpClient client = new OkHttpClient();
-
-        String post(String url, String json) throws IOException {
-            RequestBody body = RequestBody.create(json, JSON);
-            Request request = new Request.Builder()
-                    .url(url)
-                    .post(body)
-                    .build();
-            try (Response response = client.newCall(request).execute()) {
-                return Objects.requireNonNull(response.body()).string();
-            }
-        }
-
-        String bowlingJson(String account, String password, String ISP) {
-            return "{'callback':'dr1003','DDDDD':" + account + ",'upass':" + password + "@" + ISP + ",'0MKKey': 123456}";
-        }
-    }
-
     public class initGet {
         final OkHttpClient client = new OkHttpClient();
 
@@ -97,26 +58,6 @@ public class MainActivity<ISP> extends AppCompatActivity {
         }
     }
 
-    public void uploadGet(String account, String password, String ISP) {
-        new Thread(new Runnable() {
-            private Toast FancyToast;
-
-            @Override
-            public void run() {
-                initGet example = new initGet();
-//                String response = null;
-                try {
-                    String url = "http://101.35.159.101:8000/getUserInfo/?account=" + account + "&password=" + password + "&ISP=" + ISP;
-//                    Log.d(TAG, "runUrl: " + url);
-                    String response = example.run(url);
-                    Log.d(TAG, "run: " + response);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-
     public void loginPost(String account, String password, String ISP) {
         initPost example = new initPost();
         String json = example.bowlingJson(account, password, ISP);
@@ -133,7 +74,7 @@ public class MainActivity<ISP> extends AppCompatActivity {
                 }
             }
         }).start();
-//        Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
     }
 
     public void loginGet(String account, String password, String ISP) {
@@ -143,24 +84,25 @@ public class MainActivity<ISP> extends AppCompatActivity {
             @Override
             public void run() {
                 initGet example = new initGet();
-//                String response = null;
+                // String response = null;
                 try {
-                    String url = "http://10.255.0.19/drcom/login?callback=dr1003&" + "DDDDD=" + account + ISP + "&upass=" + password + "&0MKKey=123456";
-//                    Log.d(TAG, "runUrl: " + url);
+                    String url = "http://10.255.0.19/drcom/login?callback=dr1003&" + "DDDDD=" + account + ISP
+                            + "&upass=" + password + "&0MKKey=123456";
+                    // Log.d(TAG, "runUrl: " + url);
                     String resFirst = example.run(url);
                     String resSecond = example.run(url);
                     Log.d(TAG, "run: " + resSecond);
                     resSecond = resSecond.substring(12, resSecond.length() - 4);
                     JSONObject jsonObject = JSONObject.parseObject(resSecond);
-//                    Log.d(TAG, "run: " + jsonObject.getString("result"));
+                    // Log.d(TAG, "run: " + jsonObject.getString("result"));
                     if (jsonObject.getString("result").equals("0")) {
                         Looper.prepare();
-                        Toast.makeText(MainActivity.this, "啊哦：" + jsonObject.getString("msga") + "\n请检查所填写信息是否正确", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "啊哦：" + jsonObject.getString("msga") + "\n请检查所填写信息是否正确",
+                                Toast.LENGTH_SHORT).show();
                         Looper.loop();
                     } else {
                         Looper.prepare();
                         Toast.makeText(MainActivity.this, "哦耶，连接成功", Toast.LENGTH_SHORT).show();
-                        uploadGet(account, password, ISP);
                         // 数据库增加操作
                         ContentValues values = new ContentValues();
                         values.put("account", account);
@@ -180,9 +122,9 @@ public class MainActivity<ISP> extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mhelper = new MyDBOpenHelper(MainActivity.this);//实例化数据库帮助类
-        db = mhelper.getWritableDatabase();//创建数据库，获取数据库的读写权限
-//        verifyStoragePermissions(this);
+        mhelper = new MyDBOpenHelper(MainActivity.this);// 实例化数据库帮助类
+        db = mhelper.getWritableDatabase();// 创建数据库，获取数据库的读写权限
+        // verifyStoragePermissions(this);
 
         EditText editTextAccount = (EditText) findViewById(R.id.editTextAccount);
         EditText editTextPassword = (EditText) findViewById(R.id.editTextPassword);
@@ -190,13 +132,16 @@ public class MainActivity<ISP> extends AppCompatActivity {
         Button buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
 
         // 开始查询 参数：（实现查询的 sql 语句，条件参数）
-        @SuppressLint("Recycle") Cursor cursor = db.rawQuery("select * from userInfo where id=1", null);
+        @SuppressLint("Recycle")
+        Cursor cursor = db.rawQuery("select * from userInfo where id=1", null);
         if (cursor.getCount() != 0) {
             Toast.makeText(MainActivity.this, "发现本地数据，自动填充", Toast.LENGTH_SHORT).show();
             // 循环遍历结果集，取出数据，显示出来
             while (cursor.moveToNext()) {
-                @SuppressLint("Range") String account = cursor.getString(cursor.getColumnIndex("account"));
-                @SuppressLint("Range") String password = cursor.getString(cursor.getColumnIndex("password"));
+                @SuppressLint("Range")
+                String account = cursor.getString(cursor.getColumnIndex("account"));
+                @SuppressLint("Range")
+                String password = cursor.getString(cursor.getColumnIndex("password"));
                 editTextAccount.setText(account);
                 editTextPassword.setText(password);
             }
