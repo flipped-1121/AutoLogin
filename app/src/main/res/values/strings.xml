@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AutoLogin</string>
+    <string name="account">账号</string>
+    <string name="password">密码</string>
+    <string name="submit">登录</string>
+    <string name="banner">头图</string>
+    <string name="teacher">教师</string>
+    <string name="aust">电信</string>
+    <string name="unicom">联通</string>
+    <string name="cmcc">移动</string>
+</resources>
