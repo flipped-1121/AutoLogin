@@ -119,5 +119,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:rippleColor="#FFFFFF" />
 
+    <ImageView
+        android:id="@+id/appInfo"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.076"
+        app:srcCompat="@drawable/info"
+        android:contentDescription="@string/appInfo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

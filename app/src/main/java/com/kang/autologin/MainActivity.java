@@ -111,6 +111,7 @@ public class MainActivity<ISP> extends AppCompatActivity {
         EditText editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         RadioGroup rgISP = (RadioGroup) findViewById(R.id.networkType);
         Button buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
+        ImageView imageAppInfo = (ImageView) findViewById(R.id.appInfo);
 
         // 开始查询 参数：（实现查询的 sql 语句，条件参数）
         @SuppressLint("Recycle")
@@ -165,6 +166,16 @@ public class MainActivity<ISP> extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "登陆中……", Toast.LENGTH_SHORT).show();
                     loginGet(account, password, ISP);
                 }
+            }
+        });
+
+        imageAppInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
+                        .setMessage("由于学校对网络的操作，此项目应运而生。\n可以实现校园的登录并解除网速限制，enjoy~~~")
+                        .create();
+                alertDialog.show();
             }
         });
     }
