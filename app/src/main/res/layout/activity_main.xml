@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF42BEA5"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="447dp"
+        android:layout_height="228dp"
+        android:contentDescription="@string/banner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/banner" />
+
+    <LinearLayout
+        style="@style/InputBoxStyle"
+        android:layout_width="320dp"
+        android:layout_height="54dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.762">
+
+        <EditText
+            android:id="@+id/editTextAccount"
+            style="@style/InputText"
+            android:layout_width="298dp"
+            android:layout_height="54dp"
+            android:autofillHints="请输入您的账号"
+            android:ems="10"
+            android:hint="@string/account"
+            android:inputType="number"
+            android:minHeight="48dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        style="@style/InputBoxStyle"
+        android:layout_width="320dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="108dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.159">
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            style="@style/InputText"
+            android:layout_width="300dp"
+            android:layout_height="54dp"
+            android:autofillHints="请输入您的密码"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/networkType"
+        android:layout_width="246dp"
+        android:layout_height="49dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.463">
+
+        <RadioButton
+            android:id="@+id/teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/teacher" />
+
+        <RadioButton
+            android:id="@+id/aust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aust" />
+
+        <RadioButton
+            android:id="@+id/unicom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unicom" />
+
+        <RadioButton
+            android:id="@+id/cmcc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cmcc" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="136dp"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#FFFFFF" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
