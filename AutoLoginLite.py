@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
-'''
+"""
    @Author: Kang
    @Version 1.1
    @File: AutoLoginLite.py
    @CreateTime: 2021-09-05 13:22:51
    @Software: PyCharm
-'''
+"""
+from time import sleep
+
 import requests
 
 
@@ -16,8 +18,9 @@ def autoLogin():
         once = requests.get(url=url,
                             params={'callback': 'dr1003', 'DDDDD': "201930****@****", 'upass': "*******",
                                     '0MKKey': 123456})
+        sleep(3)
         twice = requests.get(url=url,
-                            params={'callback': 'dr1003', 'DDDDD': "201930****@****", 'upass': "*******",
+                             params={'callback': 'dr1003', 'DDDDD': "201930****@****", 'upass': "*******",
                                      '0MKKey': 123456})
         return "自动登陆成功"
     except:
