@@ -2,7 +2,7 @@
 <h1>自动登录安徽理工大学校园网Lite版</h1>
 </div>
 
-![socialify](https://socialify.git.ci/flipped-1121/AutoLogin/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fflipped-1121%2FBlogPictures%2Fflipped-1121-PIC%2F%E5%AE%BD%E5%B8%A6%E6%8F%90%E9%80%9F.png&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light)
+![projectInfo](https://socialify.git.ci/flipped-1121/AutoLogin/image?description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fflipped-1121%2FBlogPictures%2Fflipped-1121-PIC%2F%E5%AE%BD%E5%B8%A6%E6%8F%90%E9%80%9F.png&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light)
 
 # 前言
 + 🌟 推荐使用[ Shell 版本](https://github.com/flipped-1121/AutoLogin/tree/shell)
@@ -31,7 +31,7 @@ python AutoLoginLite.py
 ```
 
 ## 开机自启
-将AutoLoginLite.py文件放置到`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup`目录下。
+将`AutoLoginLite.py`重命名为`AutoLoginLite.pyw`文件放置到`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup`目录下。
 <h1>Congratulations🎉</h1>
 
 ## 解除宽带限速
